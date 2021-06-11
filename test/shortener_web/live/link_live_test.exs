@@ -2,18 +2,10 @@ defmodule ShortenerWeb.LinkLiveTest do
   use ShortenerWeb.ConnCase
 
   import Phoenix.LiveViewTest
-
-  alias Shortener.Services
-
-  @create_attrs %{hash: "some hash", url: "some url"}
-
-  defp fixture(:link) do
-    {:ok, link} = Services.create_link(@create_attrs)
-    link
-  end
+  import Shortener.Factory
 
   defp create_link(_) do
-    link = fixture(:link)
+    link = insert(:link)
     %{link: link}
   end
 

@@ -1,5 +1,7 @@
 <h1>Shortener</h1>
 
+<%= live_component @socket, ShortenerWeb.LinkLive.FormComponent, id: :new_link %>
+
 <h2>Recent links</h2>
 
 <table>
@@ -9,7 +11,7 @@
       <th>Url</th>
     </tr>
   </thead>
-  <tbody id="links" phx-update="append" phx-hook="InfiniteScroll">
+  <tbody id="links" phx-update="<%= @phx_update %>" phx-hook="InfiniteScroll">
     <%= for link <- @links do %>
       <tr id="link-<%= link.id %>">
         <td><%= link(absolute_url(link), to: "/#{link.hash}") %></td>

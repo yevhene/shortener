@@ -1,4 +1,4 @@
-defmodule Shortener.Services.Link do
+defmodule Shortener.Links.Link do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -9,11 +9,17 @@ defmodule Shortener.Services.Link do
     timestamps(type: :utc_datetime)
   end
 
-  def changeset(link, attrs) do
+  def validation_changeset(link, attrs) do
     link
     |> cast(attrs, [:url, :hash])
-    |> validate_required([:url, :hash])
+    |> validate_required(:url)
     |> unique_constraint(:url)
+  end
+
+  def changeset(link, attrs) do
+    link
+    |> validation_changeset(attrs)
+    |> validate_required(:hash)
     |> unique_constraint(:hash)
   end
 end
