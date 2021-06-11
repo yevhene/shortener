@@ -30,6 +30,22 @@ defmodule Shortener.Links do
   end
 
   @doc """
+  Gets a single link.
+
+  Raises `Ecto.NoResultsError` if the Link does not exist.
+
+  ## Examples
+
+      iex> get_link!(123)
+      %Link{}
+
+      iex> get_link!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_link_by_hash!(hash), do: Repo.get_by!(Link, hash: hash)
+
+  @doc """
   Returns existing link for an url or creates new.
 
   ## Examples

@@ -18,6 +18,7 @@ defmodule ShortenerWeb.Router do
     pipe_through :browser
 
     live "/", LinkLive.Index, :index
+    get "/:hash", RedirectController, :show
   end
 
   # Other scopes may use custom stacks.
