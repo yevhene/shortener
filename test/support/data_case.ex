@@ -16,6 +16,8 @@ defmodule Shortener.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL
+
   using do
     quote do
       alias Shortener.Repo
@@ -28,10 +30,10 @@ defmodule Shortener.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Shortener.Repo)
+    :ok = SQL.Sandbox.checkout(Shortener.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Shortener.Repo, {:shared, self()})
+      SQL.Sandbox.mode(Shortener.Repo, {:shared, self()})
     end
 
     :ok

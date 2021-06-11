@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-recess-order"
+  ],
+  "ignoreFiles": ["css/reset.css"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "color-named": "always-where-possible",
+    "property-no-unknown": [true, {
+      "ignoreProperties": "user-drag"
+    }],
+    "string-quotes": "double",
+    "order/properties-alphabetical-order": null,
+    "selector-no-qualifying-type": null
+  }
+}

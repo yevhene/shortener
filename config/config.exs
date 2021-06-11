@@ -13,8 +13,13 @@ config :shortener,
 # Configures the endpoint
 config :shortener, ShortenerWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "OzD9ir6HK9e7fSVKiazyby7cMjfsikIfAsqeS9ZJiimawIkTPzYdj+4mLBHWFsMd",
-  render_errors: [view: ShortenerWeb.ErrorView, accepts: ~w(html json), layout: false],
+  secret_key_base:
+    "OzD9ir6HK9e7fSVKiazyby7cMjfsikIfAsqeS9ZJiimawIkTPzYdj+4mLBHWFsMd",
+  render_errors: [
+    view: ShortenerWeb.ErrorView,
+    accepts: ~w(html json),
+    layout: false
+  ],
   pubsub_server: Shortener.PubSub,
   live_view: [signing_salt: "KhzGekv1"]
 

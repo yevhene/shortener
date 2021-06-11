@@ -32,7 +32,9 @@ defmodule ShortenerWeb.Telemetry do
 
       # Database Metrics
       summary("shortener.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("shortener.repo.query.decode_time", unit: {:native, :millisecond}),
+      summary("shortener.repo.query.decode_time",
+        unit: {:native, :millisecond}
+      ),
       summary("shortener.repo.query.query_time", unit: {:native, :millisecond}),
       summary("shortener.repo.query.queue_time", unit: {:native, :millisecond}),
       summary("shortener.repo.query.idle_time", unit: {:native, :millisecond}),
@@ -48,7 +50,8 @@ defmodule ShortenerWeb.Telemetry do
   defp periodic_measurements do
     [
       # A module, function and arguments to be invoked periodically.
-      # This function must call :telemetry.execute/3 and a metric must be added above.
+      # This function must call :telemetry.execute/3 and
+      # a metric must be added above.
       # {ShortenerWeb, :count_users, []}
     ]
   end
