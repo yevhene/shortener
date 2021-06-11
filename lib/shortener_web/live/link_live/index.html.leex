@@ -1,0 +1,20 @@
+<h1>Shortener</h1>
+
+<h2>Recent links</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Shortened</th>
+      <th>Url</th>
+    </tr>
+  </thead>
+  <tbody id="links" phx-update="append" phx-hook="InfiniteScroll">
+    <%= for link <- @links do %>
+      <tr id="link-<%= link.id %>">
+        <td><%= link(absolute_url(link), to: "/#{link.hash}") %></td>
+        <td><a href="<%= link.url %>"><%= link.url %></a></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -9,3 +9,15 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Shortener.Services.Link
+alias Shortener.Repo
+
+0..100
+|> Enum.map(fn i ->
+  {:ok, link} =
+    %Link{url: "http://example.com/url-#{i}", hash: "#{i}"}
+    |> Repo.insert()
+
+  link
+end)

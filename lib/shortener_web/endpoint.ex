@@ -10,10 +10,6 @@ defmodule ShortenerWeb.Endpoint do
     signing_salt: "FO+8H7AO"
   ]
 
-  socket "/socket", ShortenerWeb.UserSocket,
-    websocket: true,
-    longpoll: false
-
   socket "/live", Phoenix.LiveView.Socket,
     websocket: [connect_info: [session: @session_options]]
 

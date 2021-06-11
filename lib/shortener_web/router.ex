@@ -17,7 +17,7 @@ defmodule ShortenerWeb.Router do
   scope "/", ShortenerWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    live "/", LinkLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
