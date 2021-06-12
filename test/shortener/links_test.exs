@@ -22,6 +22,15 @@ defmodule Shortener.LinksTest do
       assert Links.list_links(1, 1) == [link]
     end
 
+    test "get_or_create_link_by/1 returns existing link if any" do
+      link = insert(:link)
+
+      assert {:ok, %Link{} = new_link} =
+               Links.get_or_create_link_by(%{"url" => link.url})
+
+      assert new_link.id == link.id
+    end
+
     test "get_or_create_link_by/1 with valid data creates a link" do
       assert {:ok, %Link{} = link} = Links.get_or_create_link_by(@valid_attrs)
       assert link.url == @valid_attrs["url"]

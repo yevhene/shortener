@@ -1,12 +1,16 @@
 <%= if @link do %>
   <h3>
-    You link
+    Your link
     <a href="<%= @link.url %>"><%= @link.url %></a>
     is shortened to
     <a href="<%= absolute_url(@link) %>"><%= absolute_url(@link) %></a>
   </h3>
-  <button phx-click="new-link" phx-target="<%= @myself %>">
-    Shorten another link
+  <button
+    id="reset-form"
+    phx-click="new-link"
+    phx-target="<%= @myself %>"
+  >
+    <%= gettext "Shorten another link" %>
   </button>
 <% else %>
   <%= f = form_for @changeset, "#",
@@ -19,6 +23,6 @@
     <%= text_input f, :url %>
     <%= error_tag f, :url %>
 
-    <%= submit "Shorten", phx_disable_with: "Shortening..." %>
+    <%= submit "Shorten", phx_disable_with: gettext("Shortening...") %>
   </form>
 <% end %>

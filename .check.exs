@@ -17,7 +17,6 @@
     {:doctor, false},
     {:ex_doc, false},
     {:npm_test, false},
-    {:sobelow, false},
     {:eslint, "npm run eslint --prefix assets",
      fix: "npm run eslint-fix --prefix assets"},
     {:stylelint, "npm run stylelint --prefix assets",

@@ -89,15 +89,7 @@ defmodule Shortener.Links do
     PubSub.subscribe(Shortener.PubSub, @topic)
   end
 
-  @doc """
-  Broadcasts links updates.
-
-  ## Examples
-
-      iex> broadcast(:update)
-
-  """
-  def broadcast(event, payload \\ %{}) do
+  defp broadcast(event, payload) do
     PubSub.broadcast(Shortener.PubSub, @topic, {{:links, event}, payload})
   end
 
@@ -106,6 +98,7 @@ defmodule Shortener.Links do
 
     case create_link(link_attrs) do
       {:ok, link} ->
+        broadcast(:updated, link)
         {:ok, link}
 
       {:error, %Ecto.Changeset{} = changeset} ->

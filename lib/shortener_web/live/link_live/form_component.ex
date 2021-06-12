@@ -30,7 +30,6 @@ defmodule ShortenerWeb.LinkLive.FormComponent do
   def handle_event("save", %{"link" => link_params}, socket) do
     case Links.get_or_create_link_by(link_params) do
       {:ok, link} ->
-        Links.broadcast(:updated, link)
         {:noreply, socket |> assign(:link, link)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
@@ -39,7 +38,7 @@ defmodule ShortenerWeb.LinkLive.FormComponent do
       {:error, :no_more_attempts} ->
         {:noreply,
          socket
-         |> put_flash(:error, "Error. Try again later")
+         |> put_flash(:error, gettext("Error. Try again later"))
          |> push_redirect(to: "/")}
     end
   end

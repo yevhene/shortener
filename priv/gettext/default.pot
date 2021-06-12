@@ -1,0 +1,36 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here as no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/shortener_web/live/link_live/form_component.ex:41
+msgid "Error. Try again later"
+msgstr ""
+
+#, elixir-format
+#: lib/shortener_web/live/link_live/index.html.leex:5
+msgid "Recent links"
+msgstr ""
+
+#, elixir-format
+#: lib/shortener_web/live/link_live/form_component.html.leex:9
+msgid "Shorten another link"
+msgstr ""
+
+#, elixir-format
+#: lib/shortener_web/live/link_live/index.html.leex:1
+msgid "Shortener"
+msgstr ""
+
+#, elixir-format
+#: lib/shortener_web/live/link_live/form_component.html.leex:22
+msgid "Shortening..."
+msgstr ""
